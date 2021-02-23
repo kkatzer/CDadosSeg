@@ -3,18 +3,21 @@ import sys
 import os
 
 
+# Mensagem de parâmetros inválidos
 def invalid_params():
     print("Parâmetros inválidos:")
     print("'./T2P1.py listAll [directory]' para listar todas as permissões por manifesto")
     print("'./T2P1.py listUnique [directory]' para listar as permissões únicas e comuns")
 
 
+# Função para remover prefixo
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
         return text[len(prefix):]
-    return text  # or whatever
+    return text
 
 
+# Função que lê um arquivo xml e retorna as permissões de sistema
 def read_xml(file):
     root = ET.parse(file).getroot()
     xmlPermissions = root.findall("uses-permission")
@@ -29,6 +32,7 @@ def read_xml(file):
     return permissions
 
 
+# Imprime as permissões
 def print_permissions(permissions):
     print("===================\n")
     print("Permissões por APK\n")
@@ -40,6 +44,7 @@ def print_permissions(permissions):
         print(permissions[app])
 
 
+# Conta quantas vezes a permissão aparece entre os manifestos
 def count_permission(perm, permissions):
     count = 0
     for app in permissions:
@@ -48,6 +53,7 @@ def count_permission(perm, permissions):
     return count
 
 
+# Imprime as permissões únicas e comuns das APK
 def print_unique_permissions(permissions):
     permInEveryApp = []
     print("===================\n")
@@ -72,14 +78,17 @@ def print_unique_permissions(permissions):
 
 permissions = {}
 
+# Número incorreto de argumentos
 if len(sys.argv) < 3:
     invalid_params()
     sys.exit()
 
+# Itera pela pasta e pega as permissões de cada manifesto
 for filename in os.listdir(sys.argv[2]):
     if filename.endswith(".xml"):
         permissions[filename] = read_xml(sys.argv[2] + "/" + filename)
 
+# Checa qual função a ser usada
 if sys.argv[1] == "listAll":
     print_permissions(permissions)
 elif sys.argv[1] == "listUnique":
