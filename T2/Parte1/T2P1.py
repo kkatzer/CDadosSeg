@@ -8,6 +8,7 @@ def invalid_params():
     print("'./T2P1.py listAll [directory]' para listar todas as permissões por manifesto")
     print("'./T2P1.py listUnique [directory]' para listar as permissões únicas e comuns")
 
+
 def remove_prefix(text, prefix):
     if text.startswith(prefix):
         return text[len(prefix):]
@@ -27,6 +28,7 @@ def read_xml(file):
 
     return permissions
 
+
 def print_permissions(permissions):
     print("===================\n")
     print("Permissões por APK\n")
@@ -37,12 +39,14 @@ def print_permissions(permissions):
         print(app[16:][:-4] + ": ", end="")
         print(permissions[app])
 
+
 def count_permission(perm, permissions):
     count = 0
     for app in permissions:
         if perm in permissions[app]:
             count += 1
     return count
+
 
 def print_unique_permissions(permissions):
     permInEveryApp = []
@@ -65,9 +69,10 @@ def print_unique_permissions(permissions):
     print("===================\n")
     print(permInEveryApp)
 
+
 permissions = {}
 
-if (len(sys.argv) < 3):
+if len(sys.argv) < 3:
     invalid_params()
     sys.exit()
 
