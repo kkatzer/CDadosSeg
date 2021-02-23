@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="30" android:compileSdkVersionCodename="11" android:installLocation="internalOnly" package="co.clover.clover" platformBuildVersionCode="30" platformBuildVersionName="11">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission-sdk-23 android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-permission-sdk-23 android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="com.android.vending.BILLING" android:protectionLevel="signature"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <application android:allowBackup="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:fullBackupContent="@xml/APKTOOL_DUMMYVAL_0x7f130000" android:hardwareAccelerated="true" android:icon="@mipmap/clover_launchericon" android:label="@string/APKTOOL_DUMMYVAL_0x7f100037" android:largeHeap="true" android:name=".Utilities.CloverApp" android:supportsRtl="true" android:theme="@style/APKTOOL_DUMMYVAL_0x7f110006">
+        <meta-data android:name="android.allow_multiple_resumed_activities" android:value="true"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="\ 591306734250732"/>
+        <meta-data android:name="com.facebook.sdk.AutoLogAppEventsEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.AdvertiserIDCollectionEnabled" android:value="false"/>
+        <meta-data android:name="com.facebook.sdk.CodelessDebugLogEnabled" android:value="false"/>
+        <meta-data android:name="firebase_analytics_collection_enabled" android:value="false"/>
+        <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false"/>
+        <meta-data android:name="google_analytics_ssaid_collection_enabled" android:value="false"/>
+        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAc7T4-VSiJYRXR3j2yEx-ON2DGUh_wdoI"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider591306734250732" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <provider android:authorities="co.clover.fileprovider" android:exported="false" android:grantUriPermissions="true" android:name="androidx.core.content.FileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/APKTOOL_DUMMYVAL_0x7f130001"/>
+        </provider>
+        <service android:name=".Utilities.PushNotification.PushService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="true" android:name="com.appsflyer.MultipleInstallBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name=".Utilities.FileUploader$UploadingService"/>
+        <service android:exported="false" android:name=".Utilities.SignInFileUploader$SignInPhotoUploadService"/>
+        <service android:exported="false" android:name=".Utilities.SuccessStoryUploader$UploadingService"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Activity.PaywallActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.SignInActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.SignInDetailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.SignOnBoardActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.SignInEmailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.SignInSSOEmailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.LoginActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Paywall.view.LoginEmailActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <meta-data android:name="com.snapchat.kit.sdk.redirectUrl" android:value="cloversc://snap-kit/oauth2"/>
+        <meta-data android:name="com.snapchat.kit.sdk.scopes" android:resource="@array/APKTOOL_DUMMYVAL_0x7f030001"/>
+        <activity android:launchMode="singleTask" android:name=".Paywall.view.SignInSnapKitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="snap-kit" android:path="/oauth2" android:scheme="cloversc"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/APKTOOL_DUMMYVAL_0x7f100037" android:name="com.facebook.FacebookActivity" android:theme="@style/APKTOOL_DUMMYVAL_0x7f1101a3"/>
+        <activity android:exported="true" android:name="com.facebook.CustomTabActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/APKTOOL_DUMMYVAL_0x7f100114"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="cct.co.clover.clover" android:scheme="fbconnect"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".Profile.view.ProfileValidationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileValidationPhoneActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileValidationPhoneCodeActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustPan|stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileValidationSuccessActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:exported="false" android:name="com.android.billingclient.api.ProxyBillingActivity" android:theme="@style/APKTOOL_DUMMYVAL_0x7f1100c5"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Purchase.view.SubscriptionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Purchase.view.SubscriptionBackgroundActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Purchase.view.ProfileBoostActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name=".Activity.HomeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.LocationConfirmPromptMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.FiltersActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.FiltersSelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.FiltersLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.FiltersLocationMapActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Discover.view.SchoolActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTask" android:name=".Live.LiveStreamDetailsActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <service android:exported="false" android:name=".Live.LiveStreamService"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Live.LiveStreamFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Live.LiveStreamFilterSelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Dates.view.DatesSuggestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Dates.view.DatesRequestSentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Dates.view.DatesSuggestPlaceActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateHidden"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Dates.view.DatesSuggestPlaceCustomActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Dates.view.VirtualDatesActivity" android:theme="@style/APKTOOL_DUMMYVAL_0x7f1101a4"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerFilterActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerInterestsAddActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateVisible"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerDetailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerCreateActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerEditActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerCreateDateLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerCreateCatchPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerCommentCatchPhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerTextCommentActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerInviteActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerInviteContactListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerInviteFacebookActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerAttendeesListActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Mixers.view.MixerCommentImageZoomActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.DailyPicks.DailyPicksActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="orientation|screenLayout|screenSize" android:launchMode="singleTask" android:name=".NotificationCenter.AudioVideoCall.AVCallActivity" android:screenOrientation="portrait" android:showOnLockScreen="true" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTask" android:name=".NotificationCenter.AudioVideoCall.AVInappNotificationActivity" android:theme="@style/APKTOOL_DUMMYVAL_0x7f1101a4" android:windowSoftInputMode="adjustNothing"/>
+        <service android:exported="false" android:name=".NotificationCenter.AudioVideoCall.AVCallFGService"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Messages.ConversationActivity" android:screenOrientation="portrait" android:windowSoftInputMode="adjustNothing"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Messages.view.MessageVideoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Messages.view.MessagePhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Stream.view.StreamMixerCommentLikeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Stream.view.StreamMixerInviteActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".NotificationCenter.Stream.view.StreamPhotoLikeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.FavoritesActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.ContestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountCloverIDActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountNameActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountEmailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountPasswordActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountPasswordForgotActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountNotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountNotificationsPushActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.AccountNotificationsEmailActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.PrivacyActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.PrivacyAgeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.PrivacyLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.PrivacyGenderActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.PrivacyBlockedUsersActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.SuccessStoryWebActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.LegalActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.SupportActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.SupportReportBugActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.FeedbackActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.Account.DeactivateActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".SuccessStory.SuccessStoryShareActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".SuccessStory.SuccessStoryShareDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".SuccessStory.SuccessStorySharePreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".SuccessStory.SuccessStorySubmitActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".SuccessStory.SuccessStorySubmitFacebookActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.WebActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".More.view.PrivacyCodeActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotoActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotoListEditActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotosCropActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotoPreviewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotoFacebookActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfilePhotoFacebookGridActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileEditBioActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileEditDetailsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileEditDetailsSelectionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileEditLocationActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileEditSocialMediaActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.InterestPickerActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.InterestSearchActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name=".Profile.view.ProfileBadgesActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".NotificationCenter.Messages.view.GiphyPickerActivity" android:screenOrientation="portrait" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.OthersProfileActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTask" android:name=".Activity.PushNotificationsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTask" android:name=".Activity.DeepLinksActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="clover"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="clover.onelink.me" android:pathPrefix="/2491509305" android:scheme="https"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:launchMode="singleTop" android:name=".Activity.WhatsNewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.ProfileSameInterestActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.TwentyQuestionsActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.InstagramWebViewActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Profile.view.InstagramGalleryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="screenLayout|screenSize|smallestScreenSize" android:name=".Activity.PromptActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.messaging.FirebaseMessagingService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service android:directBootAware="true" android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <provider android:authorities="co.clover.clover.SnapKitInitProvider" android:exported="false" android:name="com.snapchat.kit.sdk.SnapKitInitProvider"/>
+        <activity android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.ComposerActivity" android:windowSoftInputMode="adjustResize|stateVisible"/>
+        <service android:enabled="true" android:exported="false" android:name="com.twitter.sdk.android.tweetcomposer.TweetUploadService"/>
+        <provider android:authorities="co.clover.clover.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="co.clover.clover.firebaseinitprovider" android:directBootAware="true" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="12451000"/>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery">
+            <meta-data android:name="backend:com.google.android.datatransport.cct.CctBackendFactory" android:value="cct"/>
+        </service>
+        <service android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:exported="false" android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"/>
+        <provider android:authorities="co.clover.clover.lifecycle-process" android:exported="false" android:multiprocess="true" android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <activity android:configChanges="orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:name="com.twitter.sdk.android.core.identity.OAuthActivity"/>
+    </application>
+</manifest>

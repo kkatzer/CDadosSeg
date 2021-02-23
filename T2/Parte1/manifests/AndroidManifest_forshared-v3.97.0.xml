@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="internalOnly" package="com.forshared" platformBuildVersionCode="20011739" platformBuildVersionName="3.97.0">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION"/>
+    <permission android:name="com.forshared.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.forshared.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-feature android:name="android.hardware.location" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_ALL_DOWNLOADS"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <application android:allowBackup="true" android:fullBackupContent="@xml/backup_descriptor" android:hardwareAccelerated="@bool/hardware_accelerated" android:icon="@drawable/icon" android:label="@string/app_name" android:largeHeap="true" android:name="com.forshared.freeapp.ForsharedApp" android:networkSecurityConfig="@xml/network_security_config" android:supportsRtl="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.forshared.CloudActivity_" android:theme="@style/Theme.Main" android:uiOptions="splitActionBarWhenNarrow">
+            <intent-filter>
+                <action android:name="com.forshared.CALL_RECORDER_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="android.support.UI_OPTIONS" android:value="splitActionBarWhenNarrow"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.InterstitialAdActivity"/>
+        <receiver android:name="com.forshared.recorder.EndCallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="android.max_aspect" android:value="10"/>
+        <meta-data android:name="io.fabric.ApiKey" android:value="f8753f995c228ee384faf134dbce5d1cbe818ddb"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/app_name" android:launchMode="singleTask" android:name="com.forshared.SplashActivity" android:theme="@style/Theme.Main.Launch">
+            <intent-filter>
+                <action android:name="com.forshared.NOTIFICATION_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.forshared.intent.action.POSITION_TO_PLAYING_MEDIA"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name_music_player">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="audio/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name_photo_viewer">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="image/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name_video_player">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="video/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name_text_viewer">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="text/*"/>
+                <data android:scheme="file"/>
+                <data android:scheme="content"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_name_archive_viewer">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.zip"/>
+                <data android:pathPattern=".*\\.rar"/>
+                <data android:pathPattern=".*\\.7z"/>
+                <data android:pathPattern=".*\\.z"/>
+                <data android:pathPattern=".*\\.arj"/>
+                <data android:pathPattern=".*\\.cab"/>
+                <data android:pathPattern=".*\\.lzh"/>
+                <data android:pathPattern=".*\\..*\\.zip"/>
+                <data android:pathPattern=".*\\..*\\.rar"/>
+                <data android:pathPattern=".*\\..*\\.7z"/>
+                <data android:pathPattern=".*\\..*\\.z"/>
+                <data android:pathPattern=".*\\..*\\.arj"/>
+                <data android:pathPattern=".*\\..*\\.cab"/>
+                <data android:pathPattern=".*\\..*\\.lzh"/>
+                <data android:pathPattern=".*\\..*\\..*\\.zip"/>
+                <data android:pathPattern=".*\\..*\\..*\\.rar"/>
+                <data android:pathPattern=".*\\..*\\..*\\.7z"/>
+                <data android:pathPattern=".*\\..*\\..*\\.z"/>
+                <data android:pathPattern=".*\\..*\\..*\\.arj"/>
+                <data android:pathPattern=".*\\..*\\..*\\.cab"/>
+                <data android:pathPattern=".*\\..*\\..*\\.lzh"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.zip"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.rar"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.7z"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.z"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.arj"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.cab"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.lzh"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_base_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:host="*" android:scheme="@string/app_deep_link_scheme"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_base_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="file"/>
+                <data android:mimeType="*/*"/>
+                <data android:host="*"/>
+                <data android:pathPattern=".*\\.4shared"/>
+                <data android:pathPattern=".*\\..*\\.4shared"/>
+                <data android:pathPattern=".*\\..*\\..*\\.4shared"/>
+                <data android:pathPattern=".*\\..*\\..*\\..*\\.4shared"/>
+            </intent-filter>
+            <intent-filter android:label="@string/app_base_name">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="@string/app_deep_link_host"/>
+                <data android:pathPrefix="/mp3/"/>
+                <data android:pathPrefix="/video/"/>
+                <data android:pathPrefix="/photo/"/>
+                <data android:pathPrefix="/office/"/>
+                <data android:pathPrefix="/mobile/"/>
+                <data android:pathPrefix="/zip/"/>
+                <data android:pathPrefix="/file/"/>
+                <data android:pathPrefix="/document/"/>
+                <data android:pathPrefix="/audio/"/>
+                <data android:pathPrefix="/doc/"/>
+                <data android:pathPrefix="/game/"/>
+                <data android:pathPrefix="/music/"/>
+                <data android:pathPrefix="/archive/"/>
+                <data android:pathPrefix="/rar/"/>
+                <data android:pathPrefix="/embed/"/>
+                <data android:pathPrefix="/f/"/>
+                <data android:pathPrefix="/get/"/>
+                <data android:pathPrefix="/download/"/>
+                <data android:pathPrefix="/android/"/>
+                <data android:pathPrefix="/folder/"/>
+                <data android:pathPrefix="/web/directDownload/"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:name="com.forshared.activities.authenticator.AuthenticatorActivity_" android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="com.forshared.ACTIVITY_ACTION_AUTHORIZATION"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider android:authorities="com.forshared.provider.init" android:exported="false" android:initOrder="2147483647" android:name="com.forshared.provider.InitProvider"/>
+        <provider android:authorities="com.forshared.provider" android:exported="false" android:label="4shared" android:name="com.forshared.provider.CloudProvider" android:syncable="true"/>
+        <provider android:authorities="com.forshared.provider.notifications" android:enabled="true" android:exported="false" android:grantUriPermissions="true" android:name="com.forshared.share.FileProviderEx">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <provider android:authorities="com.forshared.search_suggestion" android:exported="false" android:name="com.forshared.GlobalSearchSuggestionProvider"/>
+        <provider android:authorities="com.forshared.playlist" android:exported="false" android:name="com.forshared.core.PlaylistProvider"/>
+        <service android:exported="false" android:name="com.forshared.services.OnStartService" android:stopWithTask="false"/>
+        <service android:exported="false" android:name="com.forshared.core.MediaPlayerService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.forshared.gcm.SubscribeService"/>
+        <receiver android:name="com.forshared.gcm.BootCompleteReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.forshared.ads.interstitial.InterstitialContext"/>
+        <receiver android:name="com.forshared.ads.OnBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <action android:name="android.intent.action.REBOOT"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.common.MoPubBrowser"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MoPubActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.RewardedMraidActivity"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.mopub.mobileads.MraidVideoPlayerActivity"/>
+        <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-9874447915500910~5153230585"/>
+        <service android:name="com.mopub.mobileads.AdsService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.ads.video.simple.AdVideoNativeActivity" android:theme="@style/Theme.Main"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.ads.video.vast.AdVideoVastActivity_" android:theme="@style/Theme.Main"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.ads.video.vpaid.AdVideoVpaidActivity_" android:theme="@style/Theme.Main"/>
+        <meta-data android:name="asset_statements" android:resource="@string/asset_statements"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:excludeFromRecents="true" android:label="@string/app_name" android:name="com.forshared.SendToCloudActivity_" android:theme="@style/Theme.Transparent">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND"/>
+                <action android:name="android.intent.action.SEND_MULTIPLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:mimeType="*/*"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.download.DownloadDestinationActivity" android:noHistory="true"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.TutorialActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit.Tutorial"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.OutSpaceActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit.Tutorial"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.WizardActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit.Tutorial"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.SelectLocalFolderActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.SelectLocalFilesActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.SelectCameraPhotoActivity" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.ReportByEmailActivity" android:theme="@style/Theme.GreyBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:excludeFromRecents="true" android:exported="false" android:name="com.forshared.activities.WelcomeActivity" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.activities.SimplePreviewActivity_" android:theme="@style/Theme.Preview"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.authenticator.testing.TestingSettings"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="Licenses" android:name="com.forshared.LicenseActivity_"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/title_activity_video_fullscreen" android:name="com.forshared.activities.VideoFullscreenActivity_" android:screenOrientation="sensorLandscape" android:theme="@style/FullscreenTheme"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/title_activity_select_folder" android:name="com.forshared.app.SelectFolderActivity" android:theme="@style/Theme.DialogWhenSplit"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.app.LockSettingsActivity_" android:theme="@style/Theme.GreyBar.XBack.LockStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.app.LockScreenActivity_" android:theme="@style/FullscreenTheme.LockStyle"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:excludeFromRecents="true" android:label="@string/folder_invite_people" android:name="com.forshared.InvitePeopleActivity_" android:theme="@style/Theme.DialogWhenSplit"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTask" android:name="com.forshared.activities.SearchActivity" android:theme="@style/Theme.Main" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTask" android:name="com.forshared.activities.LocalSearchActivity" android:theme="@style/Theme.Main" android:windowSoftInputMode="adjustNothing">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+            <meta-data android:name="android.app.searchable" android:resource="@xml/searchable"/>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.EmailEditActivity_" android:theme="@style/Theme.Login" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.FullNameEditActivity_" android:theme="@style/Theme.Login" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.SetPasswordEditActivity_" android:theme="@style/Theme.Login" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.EnterPasswordEditActivity_" android:theme="@style/Theme.Login" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.AccountActivity_" android:theme="@style/Theme.List"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.NewAccountActivity_" android:theme="@style/Theme.List"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.ForgotPasswordActivity_" android:theme="@style/Theme.List"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/title_activity_help_center" android:name="com.forshared.activities.HelpCenterActivity" android:theme="@style/Theme.GreyBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:label="@string/title_activity_abuse" android:name="com.forshared.activities.AbuseActivity" android:theme="@style/Theme.GreyBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:launchMode="singleTask" android:name="com.forshared.activities.NowPlayingActivity_" android:theme="@style/Theme.Preview"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.app.InviteFriendsActivity_" android:noHistory="true" android:theme="@style/Theme.DialogWhenSplit" android:windowSoftInputMode="adjustResize"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.terms.DetailsTermsActivity" android:theme="@style/Theme.Main"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:name="com.forshared.terms.DetailsGDPRActivity" android:theme="@style/Theme.Main"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|uiMode" android:finishOnTaskLaunch="true" android:name="com.forshared.activities.authenticator.ConfirmEmailActivity_" android:theme="@style/Theme.Login" android:windowSoftInputMode="adjustResize|stateUnchanged"/>
+        <service android:exported="false" android:name="com.forshared.services.LocalItemsService_"/>
+        <service android:exported="false" android:name="com.forshared.share.UdpClientService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.forshared.upload.CameraUploadService" android:stopWithTask="false"/>
+        <receiver android:name="com.forshared.core.MusicIntentReceiver_">
+            <intent-filter>
+                <action android:name="android.media.AUDIO_BECOMING_NOISY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.forshared.receivers.ForsharedConnectionStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.forshared.receivers.AccountsChangedReceiver_">
+            <intent-filter>
+                <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.forshared.upload.ShareFileReceiver">
+            <intent-filter>
+                <action android:name="CONFIRMATION_NOTIFICATION_LISTENER"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.forshared.core.HeadsetButtonReceiver_">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:exported="false" android:name="com.forshared.servicemanager.LocalService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.forshared.servicemanager.LongTermService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="true" android:name="com.forshared.authenticator.AuthenticationService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator"/>
+        </service>
+        <service android:exported="true" android:name="com.forshared.syncadapter.SyncService">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/syncadapter"/>
+        </service>
+        <service android:enabled="true" android:exported="false" android:name="com.forshared.core.MediaProxyService" android:stopWithTask="false"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.gcm.GcmReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.forshared.gcm"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.forshared.gcm.GcmIntentService_">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </service>
+        <service android:exported="false" android:name="com.forshared.gcm.GcmInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"/>
+        <receiver android:exported="true" android:name="com.google.android.gms.analytics.CampaignTrackingReceiver">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="false" android:name="com.forshared.notifications.SchedulingNotificationsService"/>
+        <service android:exported="false" android:name="com.forshared.usertrack.UserTrackService"/>
+        <receiver android:enabled="true" android:name="com.forshared.usertrack.UserTrackBootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:name="com.forshared.receivers.AppWakeupReceiver"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="false" android:name="com.tutelatechnologies.sdk.framework.TutelaSDKService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="false" android:exported="true" android:name="com.opensignal.datacollection.schedules.monitors.InstallReferrerReceiver" android:process=":ndc_background_sdk"/>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.AppUpgradeReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.BootReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="com.opensignal.IS_DATA_COLLECTOR"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.BatteryLowReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.BatteryOkayReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.PowerConnectedReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.PowerDisconnectedReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.timebased.PeriodicReceiver" android:process=":ndc_background_sdk"/>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.timebased.OneShotReceiver" android:process=":ndc_background_sdk"/>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.WifiChangeReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+                <action android:name="android.net.wifi.STATE_CHANGE"/>
+                <action android:name="android.net.wifi.supplicant.CONNECTION_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.PhoneStateReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.IntensiveDataTransferReceiver" android:process=":ndc_background_sdk">
+            <intent-filter>
+                <action android:name="com.opensignal.action.INTENSIVE_DATA_TRANSFER_ON"/>
+                <action android:name="com.opensignal.action.INTENSIVE_DATA_TRANSFER_OFF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="false" android:name="com.opensignal.datacollection.schedules.monitors.WifiDisconnectedReceiver" android:process=":ndc_background_sdk"/>
+        <service android:enabled="false" android:exported="false" android:name="com.opensignal.datacollection.routines.RoutineService" android:process=":ndc_background_sdk"/>
+        <service android:enabled="false" android:exported="false" android:name="com.opensignal.datacollection.CollectionRoutinesService" android:process=":ndc_background_sdk"/>
+        <service android:enabled="false" android:exported="false" android:name="com.opensignal.datacollection.measurements.UiMeasurementListenerService" android:process=":ndc_background_sdk"/>
+        <service android:enabled="false" android:exported="false" android:name="com.opensignal.datacollection.measurements.CoreMeasurementListenerService" android:process=":ndc_background_sdk"/>
+        <service android:exported="false" android:name="com.opensignal.datacollection.jobs.CollectionRoutineJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":ndc_background_sdk"/>
+        <service android:exported="false" android:name="com.opensignal.datacollection.jobs.RoutineManagerJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":ndc_background_sdk"/>
+        <receiver android:enabled="false" android:exported="true" android:name="com.bidmotion.gorgon.sdk.action.ActionEventReceiver">
+            <intent-filter android:priority="100">
+                <action android:name="android.intent.action.PACKAGE_INSTALL"/>
+                <action android:name="android.intent.action.PACKAGE_ADDED"/>
+                <action android:name="android.intent.action.PACKAGE_REMOVED"/>
+                <action android:name="android.intent.action.PACKAGE_DATA_CLEARED"/>
+                <action android:name="android.intent.action.PACKAGE_FIRST_LAUNCH"/>
+                <action android:name="android.intent.action.PACKAGE_NEEDS_VERIFICATION"/>
+                <action android:name="android.intent.action.PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.PACKAGE_VERIFIED"/>
+                <action android:name="android.intent.action.PACKAGE_CHANGED"/>
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED"/>
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="false" android:exported="true" android:name="com.bidmotion.gorgon.sdk.action.ActionIntentService"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.facebook.ads.AudienceNetworkActivity"/>
+        <service android:enabled="true" android:exported="false" android:name="com.forshared.sdk.client.ConnectionMonitorService" android:stopWithTask="false"/>
+        <service android:enabled="false" android:exported="false" android:name="com.forshared.sdk.upload.UploadService" android:stopWithTask="false"/>
+        <service android:enabled="false" android:exported="false" android:name="com.forshared.sdk.download.DownloadService" android:stopWithTask="false"/>
+        <activity android:name="com.facebook.CustomTabMainActivity"/>
+        <activity android:name="com.facebook.CustomTabActivity"/>
+        <activity android:excludeFromRecents="true" android:exported="false" android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:exported="true" android:name="com.google.android.gms.auth.api.signin.RevocationBoundService" android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementReceiver"/>
+        <receiver android:enabled="true" android:exported="true" android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:exported="false" android:name="com.google.firebase.components.ComponentDiscoveryService">
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data android:name="com.google.firebase.components:com.google.firebase.iid.Registrar" android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <receiver android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service android:exported="true" android:name="com.google.firebase.iid.FirebaseInstanceIdService">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.forshared.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <provider android:authorities="com.forshared.mobileadsinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.android.gms.ads.MobileAdsInitProvider"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <provider android:authorities="com.forshared.lifecycle-trojan" android:exported="false" android:multiprocess="true" android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"/>
+        <provider android:authorities="com.forshared.FacebookInitProvider" android:exported="false" android:name="com.facebook.internal.FacebookInitProvider"/>
+        <receiver android:exported="false" android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <provider android:authorities="com.forshared.crashlyticsinitprovider" android:exported="false" android:initOrder="100" android:name="com.crashlytics.android.CrashlyticsInitProvider"/>
+        <service android:exported="true" android:name="com.firebase.jobdispatcher.GooglePlayReceiver" android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE">
+            <intent-filter>
+                <action android:name="com.google.android.gms.gcm.ACTION_TASK_READY"/>
+            </intent-filter>
+        </service>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inlocomedia.android.ads.AdActivity" android:theme="@style/Theme.InLocoMedia.NoActionBar.Fullscreen"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:hardwareAccelerated="true" android:name="com.inlocomedia.android.ads.VideoAdActivity" android:theme="@style/Theme.InLocoMedia.Video.Fullscreen"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.ads.AdReceiver"/>
+        <provider android:authorities="com.forshared.com.inlocomedia.android.ads.provider" android:exported="false" android:grantUriPermissions="true" android:name="com.inlocomedia.android.ads.PictureFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+        <service android:exported="false" android:name="com.inlocomedia.android.location.InLocoMediaService"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.location.LocationReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="com.inlocomedia.android.core.InLocoMediaActivity" android:theme="@style/Theme.InLocoMedia.NoActionBar.Fullscreen"/>
+        <receiver android:exported="false" android:name="com.inlocomedia.android.core.schedulers.alarm.AlarmHelperReceiver">
+            <intent-filter>
+                <action android:name="com.inlocomedia.android.core.AlarmTriggeredEvent"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

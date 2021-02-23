@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?><manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.blizzard.blizzcon" platformBuildVersionCode="254" platformBuildVersionName="4.2.0">
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <permission android:name="com.blizzard.blizzcon.permission.C2D_MESSAGE" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.blizzard.blizzcon.permission.C2D_MESSAGE"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:largeHeap="true" android:name="com.blizzard.BlizzardApplication" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+        <activity android:label="@string/app_name" android:name="com.blizzard.SplashActivity" android:noHistory="true" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.blizzard.presentation.view.activity.EventInformationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.blizzard.ui.welcome.WelcomeScreenActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.blizzard.presentation.view.fragment.purchase.PurchaseVirtualTicketActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name="com.blizzard.presentation.view.activity.GenericWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.blizzard.presentation.view.fragment.news.NewsDetailsActivity" android:theme="@style/AppTheme.NoActionBar" android:windowSoftInputMode="adjustPan"/>
+        <activity android:name="com.blizzard.ui.alert.EventAlertDialogActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:name="com.blizzard.ui.main.NavigationActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|layoutDirection|orientation|screenSize" android:launchMode="singleTask" android:name="com.blizzard.presentation.view.activity.HomeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.blizzard.presentation.view.fragment.esports.EsportsBracketActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.blizzard.ui.main.FloorMapActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.blizzard.presentation.view.activity.FacadeActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:launchMode="singleInstance" android:name="com.blizzard.login.LoginWebViewActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme.NoActionBar"/>
+        <receiver android:enabled="true" android:name="com.blizzard.receivers.BlizzconJWTReceiver">
+            <intent-filter>
+                <action android:name="com.blizzard.blizzcon.BLIZZCON_JWT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:enabled="true" android:label="NetworkChangeReceiver" android:name="com.blizzard.receivers.NetworkChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.blizzard.AlarmReceiver"/>
+        <receiver android:enabled="true" android:name="com.blizzard.BootReceiver" android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.blizzard.RepeatingDownloadBroadcast" android:process=":remote"/>
+        <service android:enabled="true" android:name="com.blizzard.DownloaderService"/>
+        <service android:name="com.blizzard.BootWaitService">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </service>
+        <receiver android:exported="false" android:name="com.blizzard.notification.PushNotificationEventHandler">
+            <intent-filter>
+                <action android:name="com.blizzard.pushlibrary.notification.DEFAULT"/>
+                <action android:name="com.blizzard.pushlibrary.notification.DEEPLINK"/>
+                <action android:name="com.blizzard.pushlibrary.registration.RECEIVE_TOKEN"/>
+                <action android:name="com.blizzard.pushlibrary.notification.BUTTON"/>
+                <action android:name="com.blizzard.pushlibrary.notification.NOTIFICATION_POSTED"/>
+                <action android:name="com.blizzard.pushlibrary.notification.ERROR_SERVICE"/>
+                <action android:name="com.blizzard.pushlibrary.notification.SILENT"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="io.fabric.ApiKey" android:value="72c0d5cb5064c375550e5c5aface8b188bec304a"/>
+        <meta-data android:name="com.blizzard.pushlibrary.notification_icon" android:resource="@drawable/ic_notification"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsService"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <meta-data android:name="com.google.android.gms.analytics.globalConfigResource" android:resource="@xml/global_tracker"/>
+        <receiver android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsReceiver">
+            <intent-filter>
+                <action android:name="com.google.android.gms.analytics.ANALYTICS_DISPATCH"/>
+            </intent-filter>
+        </receiver>
+        <meta-data android:name="BITMOVIN_PLAYER_LICENSE_KEY" android:value="d2e9fcaf-6046-4636-8929-da0e114d5d48"/>
+        <meta-data android:name="com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME" android:value="com.bitmovin.player.cast.BitmovinCastOptionsProvider"/>
+        <receiver android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+        <service android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"/>
+        <service android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+        <service android:enabled="true" android:exported="false" android:name="com.google.android.gms.analytics.AnalyticsJobService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:exported="false" android:name="com.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+        <service android:name="com.bitmovin.player.offline.service.BitmovinDownloadService"/>
+        <service android:exported="true" android:name="com.google.android.exoplayer2.scheduler.PlatformScheduler$PlatformSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name="com.blizzard.pushlibrary.receiver.GcmBroadcastReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+                <category android:name="com.blizzard.blizzcon"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.blizzard.pushlibrary.receiver.PackageReplacedReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.blizzard.pushlibrary.service.GcmIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service android:name="com.blizzard.pushlibrary.service.GcmRegisterIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider android:authorities="com.blizzard.blizzcon.com.squareup.picasso" android:exported="false" android:name="com.squareup.picasso.PicassoProvider"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.testfairy.activities.ProvideFeedbackActivity" android:theme="@android:style/Theme.Holo.Light"/>
+        <activity android:configChanges="orientation|screenSize" android:name="com.testfairy.activities.AutoUpdateActivity"/>
+    </application>
+</manifest>
